@@ -21,7 +21,7 @@ function main() {
         threeD = true;
 
     for (var i = 0; i < 4; i++) {
-        soundsArr.push(new Audio('/audio/' + (i + 1) + '.mp3'));
+        soundsArr.push(new Audio('audio/' + (i + 1) + '.mp3'));
     }
 
     //mute button
