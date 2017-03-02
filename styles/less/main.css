@@ -27,7 +27,10 @@ html {
 }
 #view {
   position: absolute;
-  top: 1%;
+  top: 100%;
+  -webkit-transform: translateY(-60px);
+      -ms-transform: translateY(-60px);
+          transform: translateY(-60px);
   cursor: pointer;
   border: 1px solid #455A64;
   opacity: 0.6;
@@ -87,7 +90,7 @@ html {
   color: #fff;
 }
 .flex-box {
-  margin-top: 8%;
+  margin-top: 50px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
