@@ -15,6 +15,8 @@
     <!-- Main styles -->
 
     <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link href="styles/less/main.css" rel="stylesheet">
 
     <!--Favicons-->
@@ -26,12 +28,43 @@
 <body>
 
     <div class="flex-box">
+
+        <div id="view"><i class="fa fa-refresh fa-pull-left"></i>VIEW</div>
+
         <div class="container">
 
-            <div class="r"></div>
-            <div class="g"></div>
-            <div class="b"></div>
-            <div class="y"></div>
+            <p>S I M O N</p>
+
+            <div id="mute">
+                <span class="fa-stack fa-lg clickable"><i class="fa fa-volume-up fa-stack-1x"></i><i id="muted" class="fa fa-stack-2x"></i></span>
+            </div>
+
+            <div id="start" class="switch-container clickable">
+                <div class="switch"></div>
+                <div id="start-stop-label" class="label">START</div>
+            </div>
+
+            <div id="strict" class="switch-container clickable">
+                <div class="switch"></div>
+                <div id="strict-label" class="label">STRICT MODE</div>
+            </div>
+
+            <div class="counters">
+
+                <div id="seq-count">COUNT
+                    <div id="count-disp" class="display">--</div>
+                </div>
+
+                <div id="level">LEVEL
+                    <div id="level-disp" class="display">--</div>
+                </div>
+            </div>
+
+            <div data-number="1" class="light clickable r"></div>
+            <div data-number="2" class="light clickable g"></div>
+            <div data-number="3" class="light clickable b"></div>
+            <div data-number="4" class="light clickable y"></div>
+
         </div>
     </div>
 
