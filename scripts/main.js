@@ -193,7 +193,7 @@ function main() {
                         level++;
                         canClick = false;
                         playsArr = [];
-                        speed *= 0.95; // 55;
+                        speed *= 0.9; // 55;
                         window.setTimeout(function () {
 
                             clickedLight.classList.remove('js-lighted');
