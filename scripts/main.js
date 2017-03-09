@@ -4,6 +4,13 @@
 function main() {
     "use strict";
 
+    var level = 0,
+        count = level,
+        sequenceArr = [],
+        playsArr = [],
+        canClick = false,
+        speed = 1500;
+
     var lightObj = {
             1: "r",
             2: "g",
@@ -13,8 +20,11 @@ function main() {
         colorsArr = ["#F44336", "#00E676", "#304FFE", "#FFEB3B"],
         soundsArr = [],
         lights = document.getElementsByClassName('light'),
+        countDisplayContainer = document.getElementById('seq-count'),
+        levelDisplayContainer = document.getElementById('level'),
         countDisplay = document.getElementById('count-disp'),
         levelDisplay = document.getElementById('level-disp'),
+
         playInterval,
         strict = false,
         mute = false,
@@ -52,15 +62,15 @@ function main() {
 
         if (threeD) {
             document.getElementsByClassName('container')[0].style.transform = "rotateX(0deg) rotateZ(0deg) rotate(-90deg)";
-            countDisplay.style.transform = "rotate(90deg)";
-            levelDisplay.style.transform = "rotate(90deg)";
+            countDisplayContainer.style.transform = "rotate(90deg) translateY(-80px)";
+            levelDisplayContainer.style.transform = "rotate(90deg)";
             threeD = false;
 
         } else {
             document.getElementsByClassName('container')[0].style.transform = "rotate(0deg) rotateX(60deg) rotateZ(-45deg)";
-            countDisplay.style.transform = "rotate(0deg)";
-            levelDisplay.style.transform = "rotate(0deg)";
-            threeD=true;
+            countDisplayContainer.style.transform = "rotate(0deg)";
+            levelDisplayContainer.style.transform = "rotate(0deg) translateX(-80px)";
+            threeD = true;
         }
 
     });
@@ -69,12 +79,20 @@ function main() {
 
     function play() {
 
-        var level = 0,
-            count = level,
-            sequenceArr = [],
-            playsArr = [],
-            canClick = false,
-            speed = 1500;
+        level = 0;
+        count = level;
+        sequenceArr = [];
+        playsArr = [];
+        canClick = false;
+        speed = 1500;
+
+        function setSequence() {
+            for (i = 0; i < 20; i++) {
+                sequenceArr[i] = Math.floor((Math.random() * 4) + 1);
+            }
+        }
+        setSequence();
+        console.log(sequenceArr);
 
         //player input
         function lightClicked(clickedLight) {
@@ -127,6 +145,8 @@ function main() {
                     level -= (level !== 0 ? 1 : 0);
                     playsArr = [];
 
+                    countDisplay.style.color = "#FF5722";
+                    levelDisplay.style.color = "#FF5722";
                     countDisplay.innerText = "XX";
                     levelDisplay.innerText = "XX";
 
@@ -140,6 +160,9 @@ function main() {
 
                 } else if (playsArr[playsArr.length - 1] !== sequenceArr[playsArr.length - 1] && strict) {
 
+
+                    countDisplay.style.color = "#FF5722";
+                    levelDisplay.style.color = "#FF5722";
                     countDisplay.innerText = "XX";
                     levelDisplay.innerText = "XX";
                     level = 0;
@@ -170,7 +193,7 @@ function main() {
                                 lights[i].classList.remove('js-lighted');
                                 lights[i].style.opacity = "0.4";
                                 lights[i].style.boxShadow = "-2px 2px 10px 0 rgba(34, 34, 34, 0.6)";
-                                lights[i].style.transform = "translateZ(0)";
+                                lights[i].style.transform = "rotate(90deg) translateZ(0)";
                                 lights[i].style.backgroundColor = "#455A64";
                                 lights[i].innerText = "YOU WIN!!";
 
@@ -187,13 +210,15 @@ function main() {
                         }, 150);
 
                     } else {
+                        countDisplay.style.color = "#00C853";
+                        levelDisplay.style.color = "#00C853";
                         countDisplay.innerText = "✔✔";
                         levelDisplay.innerText = "✔✔";
 
                         level++;
                         canClick = false;
                         playsArr = [];
-                        speed *= 0.9; // 55;
+                        speed *= 0.92; // 55;
                         window.setTimeout(function () {
 
                             clickedLight.classList.remove('js-lighted');
@@ -212,43 +237,37 @@ function main() {
         //mouse up and leave handlers
         for (var i = 0; i < lights.length; i++) {
 
-            lights[i].addEventListener('mousedown', function () {
+            lights[i].onmousedown = function () {
 
                 lightClicked(this);
 
-            });
+            };
 
 
-            lights[i].addEventListener('mouseup', function () {
-
-                if (canClick) {
-                    this.classList.remove('js-lighted');
-                    this.style.backgroundColor = "#455A64";
-                }
-            });
-
-
-            lights[i].addEventListener('mouseleave', function () {
+            lights[i].onmouseup = function () {
 
                 if (canClick) {
                     this.classList.remove('js-lighted');
                     this.style.backgroundColor = "#455A64";
                 }
-            });
+            };
+
+
+            lights[i].onmouseleave = function () {
+
+                if (canClick) {
+                    this.classList.remove('js-lighted');
+                    this.style.backgroundColor = "#455A64";
+                }
+            };
 
         }
-
-
-        function setSequence() {
-            for (i = 0; i < 20; i++) {
-                sequenceArr[i] = Math.floor((Math.random() * 4) + 1);
-            }
-        }
-        setSequence();
 
         //run light sequence
         function fireLight() {
 
+            countDisplay.style.color = "#fff";
+            levelDisplay.style.color = "#fff";
             countDisplay.innerText = count + 1;
             levelDisplay.innerText = level;
 
@@ -299,7 +318,7 @@ function main() {
         } //--end fireLight/sequence function
 
         //run level 0/first sequence
-        playInterval = window.setInterval(fireLight, 500);
+        playInterval = window.setInterval(fireLight, speed);
 
     } //--end play function
 
@@ -312,9 +331,20 @@ function main() {
                 lights[i].classList.remove('js-lighted');
                 lights[i].style.opacity = "0.4";
                 lights[i].style.boxShadow = "-2px 2px 10px 0 rgba(34, 34, 34, 0.6)";
-                lights[i].style.transform = "none";
+                lights[i].style.transform = "rotate(90deg)";
                 lights[i].style.backgroundColor = "#455A64";
                 lights[i].innerText = "";
+
+
+                lights[i].onmousedown = null;
+
+
+                lights[i].onmouseup = null;
+
+
+                lights[i].onmouseleave = null;
+
+
 
             }
 
@@ -323,6 +353,8 @@ function main() {
             window.clearInterval(playInterval);
             countDisplay.innerText = "--";
             levelDisplay.innerText = "--";
+
+
 
 
 
