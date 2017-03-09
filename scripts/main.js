@@ -243,8 +243,22 @@ function main() {
 
             };
 
+            lights[i].touchstart = function () {
+
+                lightClicked(this);
+
+            };
+
 
             lights[i].onmouseup = function () {
+
+                if (canClick) {
+                    this.classList.remove('js-lighted');
+                    this.style.backgroundColor = "#455A64";
+                }
+            };
+
+             lights[i].touchend = function () {
 
                 if (canClick) {
                     this.classList.remove('js-lighted');
