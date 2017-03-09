@@ -202,6 +202,7 @@ html {
   -webkit-transform-origin: left;
       -ms-transform-origin: left;
           transform-origin: left;
+  left: 40px;
   display: inline-block;
   margin-top: 12px;
   height: 50px;
@@ -232,6 +233,7 @@ html {
       -ms-transform-origin: left;
           transform-origin: left;
   position: relative;
+  left: -80px;
   -webkit-transition: all 1.8s ease-in-out;
           transition: all 1.8s ease-in-out;
 }
