@@ -9,7 +9,7 @@ function main() {
         sequenceArr = [],
         playsArr = [],
         canClick = false,
-        speed = 1500;
+        speed = 1200;
 
     var lightObj = {
             1: "r",
@@ -84,7 +84,7 @@ function main() {
         sequenceArr = [];
         playsArr = [];
         canClick = false;
-        speed = 1500;
+        speed = 1200;
 
         function setSequence() {
             for (i = 0; i < 20; i++) {
@@ -105,14 +105,14 @@ function main() {
                 clickedLight.classList.add('js-lighted');
 
                 if (clickedLight.classList.contains('r')) {
-                    clickedLight.style.backgroundColor = colorsArr[0];
+                    //clickedLight.style.backgroundColor = colorsArr[0];
                     soundsArr[0].load();
 
                     soundsArr[0].play();
                 }
 
                 if (clickedLight.classList.contains('g')) {
-                    clickedLight.style.backgroundColor = colorsArr[1];
+                    //clickedLight.style.backgroundColor = colorsArr[1];
                     soundsArr[1].load();
 
                     soundsArr[1].play();
@@ -120,7 +120,7 @@ function main() {
                 }
 
                 if (clickedLight.classList.contains('b')) {
-                    clickedLight.style.backgroundColor = colorsArr[2];
+                    //clickedLight.style.backgroundColor = colorsArr[2];
                     soundsArr[2].load();
 
                     soundsArr[2].play();
@@ -128,7 +128,7 @@ function main() {
                 }
 
                 if (clickedLight.classList.contains('y')) {
-                    clickedLight.style.backgroundColor = colorsArr[3];
+                    //clickedLight.style.backgroundColor = colorsArr[3];
                     soundsArr[3].load();
 
                     soundsArr[3].play();
@@ -137,6 +137,13 @@ function main() {
 
                 //add player click to array
                 playsArr.push(Number(clickedLight.getAttribute('data-number')));
+
+                window.setTimeout(function () {
+
+                    clickedLight.classList.remove('js-lighted');
+                    //clickedLight.style.backgroundColor = "#455A64";
+
+                }, speed / 3);
 
                 //check player click
                 if (playsArr[playsArr.length - 1] !== sequenceArr[playsArr.length - 1] && !strict) {
@@ -152,7 +159,7 @@ function main() {
 
                     window.setTimeout(function () {
 
-                        clickedLight.classList.remove('js-lighted');
+                        //clickedLight.classList.remove('js-lighted');
                         //clickedLight.style.backgroundColor = "#455A64";
                         playInterval = window.setInterval(fireLight, speed);
 
@@ -171,7 +178,7 @@ function main() {
                     setSequence();
                     playsArr = [];
                     canClick = false;
-                    speed = 1500;
+                    speed = 1200;
 
                     window.setTimeout(function () {
                         clickedLight.classList.remove('js-lighted');
@@ -218,7 +225,7 @@ function main() {
                         level++;
                         canClick = false;
                         playsArr = [];
-                        speed *= 0.92; // 55;
+                        speed *= 0.92;
                         window.setTimeout(function () {
 
                             clickedLight.classList.remove('js-lighted');
@@ -240,36 +247,25 @@ function main() {
             lights[i].onmousedown = function () {
 
                 lightClicked(this);
-
-            };
-
-            lights[i].touchstart = function () {
-
-                lightClicked(this);
-
             };
 
 
             lights[i].onmouseup = function () {
 
                 if (canClick) {
-                    this.classList.remove('js-lighted');
+
+                    //this.classList.remove('js-lighted');
                     //this.style.backgroundColor = "#455A64";
+
                 }
             };
 
-             lights[i].touchend = function () {
-
-                if (canClick) {
-                    this.classList.remove('js-lighted');
-                    //this.style.backgroundColor = "#455A64";
-                }
-            };
 
 
             lights[i].onmouseleave = function () {
 
                 if (canClick) {
+
                     this.classList.remove('js-lighted');
                     //this.style.backgroundColor = "#455A64";
                 }
@@ -290,28 +286,28 @@ function main() {
             light.classList.add('js-lighted');
 
             if (light.classList.contains('r')) {
-                light.style.backgroundColor = colorsArr[0];
+                //light.style.backgroundColor = colorsArr[0];
                 soundsArr[0].load();
                 soundsArr[0].play();
 
             }
 
             if (light.classList.contains('g')) {
-                light.style.backgroundColor = colorsArr[1];
+                //light.style.backgroundColor = colorsArr[1];
                 soundsArr[1].load();
                 soundsArr[1].play();
 
             }
 
             if (light.classList.contains('b')) {
-                light.style.backgroundColor = colorsArr[2];
+                //light.style.backgroundColor = colorsArr[2];
                 soundsArr[2].load();
                 soundsArr[2].play();
 
             }
 
             if (light.classList.contains('y')) {
-                light.style.backgroundColor = colorsArr[3];
+                //light.style.backgroundColor = colorsArr[3];
                 soundsArr[3].load();
                 soundsArr[3].play();
 
