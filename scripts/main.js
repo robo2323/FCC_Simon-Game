@@ -153,7 +153,7 @@ function main() {
                     window.setTimeout(function () {
 
                         clickedLight.classList.remove('js-lighted');
-                        clickedLight.style.backgroundColor = "#455A64";
+                        //clickedLight.style.backgroundColor = "#455A64";
                         playInterval = window.setInterval(fireLight, speed);
 
                     }, 500);
@@ -175,7 +175,7 @@ function main() {
 
                     window.setTimeout(function () {
                         clickedLight.classList.remove('js-lighted');
-                        clickedLight.style.backgroundColor = "#455A64";
+                        //clickedLight.style.backgroundColor = "#455A64";
 
                         playInterval = window.setInterval(fireLight, speed);
 
@@ -194,7 +194,7 @@ function main() {
                                 lights[i].style.opacity = "0.4";
                                 lights[i].style.boxShadow = "-2px 2px 10px 0 rgba(34, 34, 34, 0.6)";
                                 lights[i].style.transform = "rotate(90deg) translateZ(0)";
-                                lights[i].style.backgroundColor = "#455A64";
+                                //lights[i].style.backgroundColor = "#455A64";
                                 lights[i].innerText = "YOU WIN!!";
 
                             }
@@ -222,7 +222,7 @@ function main() {
                         window.setTimeout(function () {
 
                             clickedLight.classList.remove('js-lighted');
-                            clickedLight.style.backgroundColor = "#455A64";
+                            //clickedLight.style.backgroundColor = "#455A64";
                             playInterval = window.setInterval(fireLight, speed);
                         }, 500);
                     }
@@ -254,7 +254,7 @@ function main() {
 
                 if (canClick) {
                     this.classList.remove('js-lighted');
-                    this.style.backgroundColor = "#455A64";
+                    //this.style.backgroundColor = "#455A64";
                 }
             };
 
@@ -262,7 +262,7 @@ function main() {
 
                 if (canClick) {
                     this.classList.remove('js-lighted');
-                    this.style.backgroundColor = "#455A64";
+                    //this.style.backgroundColor = "#455A64";
                 }
             };
 
@@ -271,7 +271,7 @@ function main() {
 
                 if (canClick) {
                     this.classList.remove('js-lighted');
-                    this.style.backgroundColor = "#455A64";
+                    //this.style.backgroundColor = "#455A64";
                 }
             };
 
@@ -319,7 +319,7 @@ function main() {
 
             window.setTimeout(function () {
                 light.classList.remove('js-lighted');
-                light.style.backgroundColor = "#455A64";
+                //light.style.backgroundColor = "#455A64";
             }, speed / 2);
 
             count++;
@@ -346,7 +346,7 @@ function main() {
                 lights[i].style.opacity = "0.4";
                 lights[i].style.boxShadow = "-2px 2px 10px 0 rgba(34, 34, 34, 0.6)";
                 lights[i].style.transform = "rotate(90deg)";
-                lights[i].style.backgroundColor = "#455A64";
+                //lights[i].style.backgroundColor = "#455A64";
                 lights[i].innerText = "";
 
 

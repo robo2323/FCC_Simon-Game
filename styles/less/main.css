@@ -141,7 +141,6 @@ html {
 .container .light {
   width: 50%;
   height: 50%;
-  background-color: #455A64;
   opacity: .4;
   -webkit-transition: all .15s ease;
           transition: all .15s ease;
@@ -248,4 +247,16 @@ html {
           transform: translate(-80px);
   -webkit-transition: all 1.8s ease-in-out;
           transition: all 1.8s ease-in-out;
+}
+.r {
+  background-color: #F44336;
+}
+.g {
+  background-color: #00E676;
+}
+.b {
+  background-color: #304FFE;
+}
+.y {
+  background-color: #FFEB3B;
 }
