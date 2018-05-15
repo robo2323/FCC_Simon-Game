@@ -6,6 +6,6 @@ A project from the [Free Code Camp](https://freecodecamp.org) front-end curricul
 
 Created with vanilla **JavaScript** and **LESS/CSS** using CSS transforms with 
 ```CSS
-{transform-style: preserve-3d})
+{transform-style: preserve-3d}
 ```
 to create a Faux-3D effect.
